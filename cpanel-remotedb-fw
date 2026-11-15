@@ -1,0 +1,10 @@
+#!/usr/bin/python3 -I
+"""Entry point installed at /opt/cpanel-remotedb-fw/cpanel-remotedb-fw (run as root)."""
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
+
+from remotedb_fw.cli import main  # noqa: E402
+
+sys.exit(main())

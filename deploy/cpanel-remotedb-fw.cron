@@ -1,0 +1,6 @@
+# /etc/cron.d/cpanel-remotedb-fw - sync cPanel Remote Database Access hosts into the firewall.
+# stdout is empty on success; only fatal errors reach stderr (and therefore root's mail).
+# Details: /var/log/cpanel-remotedb-fw/{sync.log,validation-errors.log,status.json}
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+*/2 * * * * root /usr/bin/python3 -I /opt/cpanel-remotedb-fw/cpanel-remotedb-fw sync

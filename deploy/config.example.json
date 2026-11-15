@@ -1,0 +1,39 @@
+{
+  "_comment": "Copy to /etc/cpanel-remotedb-fw/config.json. Every key is optional; defaults shown.",
+  "firewall": "auto",
+  "source": "mysql",
+  "ports": [3306],
+  "max_ips_per_user": 5,
+  "allow_private_ips": true,
+  "allow_ipv6": true,
+  "skip_suspended": true,
+  "block_server_ips": true,
+  "blocked_ips": [],
+  "state_dir": "/var/lib/cpanel-remotedb-fw",
+  "log_dir": "/var/log/cpanel-remotedb-fw",
+  "lock_file": "/run/cpanel-remotedb-fw.lock",
+  "command_timeout": 120,
+  "csf": {
+    "bin": "/usr/sbin/csf",
+    "allow_file": "/etc/csf/csf.allow",
+    "include_file": "/etc/csf/cpanel-remotedb.allow",
+    "conf_file": "/etc/csf/csf.conf",
+    "disable_file": "/etc/csf/csf.disable"
+  },
+  "firewalld": {"bin": "firewall-cmd", "zone": null, "ipset_v4": "cpremotedb4", "ipset_v6": "cpremotedb6"},
+  "nftables": {"bin": "nft", "chain": "cpremotedb", "targets": []},
+  "iptables": {
+    "bin_v4": "iptables", "bin_v6": "ip6tables",
+    "restore_v4": "iptables-restore", "restore_v6": "ip6tables-restore",
+    "chain": "CPREMOTEDB", "parent_chain": "INPUT"
+  },
+  "cpanel": {
+    "users_dir": "/var/cpanel/users",
+    "suspended_dir": "/var/cpanel/suspended",
+    "mainip_file": "/var/cpanel/mainip",
+    "ips_file": "/etc/ips",
+    "mysql_bin": "mysql",
+    "mysql_defaults_file": "/root/.my.cnf",
+    "cpapi2_bin": "/usr/local/cpanel/bin/cpapi2"
+  }
+}

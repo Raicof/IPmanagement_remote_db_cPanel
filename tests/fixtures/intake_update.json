@@ -1,0 +1,13 @@
+{
+  "_comment": "Second cron pass: alice removed 203.0.113.20, carol added 192.0.2.8 (so 192.0.2.3 becomes inactive), bob removed everything, erin is a new account.",
+  "users": {
+    "alice": ["198.51.100.10", "2001:db8::10"],
+    "bob": [],
+    "carol": [
+      "192.0.2.1", "192.0.2.2", "192.0.2.3", "192.0.2.4",
+      "192.0.2.5", "192.0.2.6", "192.0.2.7", "192.0.2.8"
+    ],
+    "dave": [],
+    "erin": ["203.0.113.99"]
+  }
+}
